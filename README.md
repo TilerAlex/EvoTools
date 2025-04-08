@@ -14,7 +14,6 @@ Made by Tiler
 
 ## Requirements
 
-- **Python 3.12**: ([download](https://www.python.org/downloads/release/python-3129/))
 - **Warcraft III**:
   - "1920x1080" or "2560x1440" resolution
   - Original graphics
@@ -39,25 +38,32 @@ Made by Tiler
  - **Fishing**: *(Does fishing cycle)*
    - `Ctrl+F1` Main menu
    - `Ctrl+F2` Turn on/off functionality
-   - `Ctrl+F3` Fishing mode:
+   - `Ctrl+F3` Fishing mode: *(rod must be in num8 inventory)*
      - Perfect
      - Perfect (no Flying with fish)
      - Great
      - Standard
    - `Ctrl+F4` Respawn point *(Sets point where hero will run with auto-attack after death)*
-   - `Ctrl+F5` Auto-save interval [none,5,10,30] *(Drops caught fish by doing "-s" saving)*
+   - `Ctrl+F5` Auto-save interval [none,5,10,30] *(Drops caught fish by executing "-s" command)*
  - **Leveling**: *(Allows to level in idle)*
    - `Ctrl+F1` Main menu
    - `Ctrl+F2` Turn on/off functionality
    - `Ctrl+F3` Click button *(Allows to set a key that will be periodically clicked. Used to start and finish quests)*
    - `Ctrl+F4` Click interval [none,1,2,3] *(Sets click periodicity in secords)*
-   - `Ctrl+F5` Auto-save interval [none,5,10,30] *(Saves hero with "-s" saving)*
+   - `Ctrl+F5` Auto-save interval [none,5,10,30] *(Saves hero with "-s" command)*
  - **System**: *(Shows system data)*
    - `Ctrl+F1` Main menu
 
 ## Instructions
 
-1. Ensure you have Python 3.12 installed. ([download](https://www.python.org/downloads/release/python-3129/))
-   - **Important**: During installation, make sure to check the option to "Add Python to PATH".
-2. Run the `start.bat` file.
-3. The program will start once all prerequisite libraries are installed for the first time.
+Program can be run using 2 ways:
+
+1. Using executable file:
+    - Download and run `EvoTools.1.0.exe`
+
+2. Using compiled files:
+    - Install [Python 3.12](https://www.python.org/downloads/release/python-3129/)
+      - **Important**: During installation, make sure to check the option to "Add Python to PATH".
+    - Upack `EvoTools.1.0.zip` archive
+    - Run `start.bat` file
+    - The program will start once all required libraries are installed for the first time
