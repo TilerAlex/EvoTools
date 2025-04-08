@@ -1,0 +1,7 @@
+Pillow
+keyboard
+pyautogui
+pygetwindow
+pywin32
+psutil
+pyinstaller
