@@ -15,7 +15,7 @@ Made by Tiler
 ## Requirements
 
 - **Warcraft III**:
-  - "1920x1080" or "2560x1440" resolution
+  - "1920x1080", "2560x1440" or "2560x1600" resolution
   - Original graphics
   - English locale
   - Game window not minimized
@@ -34,7 +34,7 @@ Made by Tiler
  - **Arrows**: *(Automatically clicks required arrow used in Imp2 and m1 mechanics)*
    - `Ctrl+F1` Main menu
    - `Ctrl+F2` Turn on/off functionality
-   - `Ctrl+F3` Camera back [yes/no] (Clicks the opposite direction to bring camera back)
+   - `Ctrl+F3` Camera back [yes/no] *(Clicks the opposite direction to bring camera back)*
  - **Fishing**: *(Does fishing cycle)*
    - `Ctrl+F1` Main menu
    - `Ctrl+F2` Turn on/off functionality
@@ -59,11 +59,11 @@ Made by Tiler
 Program can be run using 2 ways:
 
 1. Using executable file:
-    - Download and run `EvoTools.1.0.exe`
+    - Download and run `EvoTools.X.X.exe`
 
 2. Using compiled files:
     - Install [Python 3.12](https://www.python.org/downloads/release/python-3129/)
       - **Important**: During installation, make sure to check the option to "Add Python to PATH".
-    - Upack `EvoTools.1.0.zip` archive
+    - Upack `EvoTools.X.X.zip` archive
     - Run `start.bat` file
     - The program will start once all required libraries are installed for the first time

@@ -1,5 +1,6 @@
 RES_1080 = '1920x1080'
 RES_1440 = '2560x1440'
+RES_1600 = '2560x1600'
 
 JOB_ARROWS = 'arrows'
 JOB_CLUES = 'clue'
@@ -31,6 +32,83 @@ COLOR_BLUE = 'blue'
 #     return f'{job}{color}{value}{index}'
 
 coordinates = {
+    RES_1600: {
+        'arrows_red': (358, 855),              # D
+        'arrows_yellow_up_1': (553, 855),      # U
+        'arrows_yellow_up_2': (564, 855),      # P
+        'arrows_yellow_up_3': (602, 845),      # A
+        'arrows_yellow_up_4': (620, 845),      # R
+        'arrows_yellow_down_1': (555, 855),    # D
+        'arrows_yellow_down_2': (562, 855),    # O
+        'arrows_yellow_down_3': (609, 848),    # W
+        'arrows_yellow_down_4': (632, 848),    # N
+        'arrows_yellow_left_1': (547, 868),    # L
+        'arrows_yellow_left_2': (556, 868),    # E
+        'arrows_yellow_left_3': (576, 855),    # F
+        'arrows_yellow_left_4': (597, 860),    # T
+        'arrows_yellow_right_1': (536, 867),   # R
+        'arrows_yellow_right_2': (558, 856),   # I
+        'arrows_yellow_right_3': (588, 862),   # G
+        'arrows_yellow_right_4': (616, 855),   # H
+        # CLUES
+        # Top Left
+        'clue_blue_top_left_1': (356, 936),      # 1
+        'clue_green_top_left_1_1': (716, 926),
+        'clue_green_top_left_1_2': (747, 926),
+        'clue_green_top_left_1_3': (860, 926),
+        'clue_blue_top_left_2': (356, 896),      # 2
+        'clue_green_top_left_2_1': (1462, 885),
+        'clue_green_top_left_2_2': (1566, 885),
+        'clue_green_top_left_2_3': (1584, 885),
+        # Top Right
+        'clue_blue_top_right_1': (356, 936),     # 1
+        'clue_green_top_right_1_1': (642, 926),
+        'clue_green_top_right_1_2': (660, 926),
+        'clue_green_top_right_1_3': (804, 926),
+        'clue_blue_top_right_2': (356, 896),     # 2
+        'clue_green_top_right_2_1': (1390, 885),
+        'clue_green_top_right_2_2': (1409, 885),
+        'clue_green_top_right_2_3': (1614, 885),
+        # Bot Left
+        'clue_blue_bot_left_1': (356, 896),      # 2
+        'clue_green_bot_left_1_1': (1566, 885),
+        'clue_green_bot_left_1_2': (1575, 885),
+        'clue_green_bot_left_1_3': (1605, 885),
+        'clue_blue_bot_left_2': (356, 856),      # 3
+        'clue_green_bot_left_2_1': (1310, 846),
+        'clue_green_bot_left_2_2': (1436, 846),
+        'clue_green_bot_left_2_3': (1546, 846),
+        # Bot Right
+        'clue_blue_bot_right_1': (356, 936),     # 1
+        'clue_green_bot_right_1_1': (490, 926),
+        'clue_green_bot_right_1_2': (609, 926),
+        'clue_green_bot_right_1_3': (722, 926),
+        'clue_blue_bot_right_2': (356, 936),     # 1
+        'clue_green_bot_right_2_1': (997, 926),
+        'clue_green_bot_right_2_2': (1098, 926),
+        'clue_green_bot_right_2_3': (1194, 926),
+        # Fishing
+        'fishing_yellow_up_1': (675, 924),    # O
+        'fishing_white_up_1': (524, 924),     # [
+        'fishing_white_up_2': (816, 924),     # ]
+        'fishing_green_down_1': (750, 924),   # O
+        'fishing_white_down_1': (524, 924),   # [
+        'fishing_white_down_2': (892, 924),   # [
+        # Common
+        'hero_icon': (65, 120),
+        'hero_icon_frame': (15, 75),      # hero icon frame becomes black when hero is dead
+        'hotbar_slot_1': (1925, 1275),
+        'hotbar_slot_4': (2260, 1300),
+        # 'character_alive': (1280, 1197),
+        'fish_drop': (1603, 1222),     # slot 1
+        # Inventory
+        'inv_item_1': (1630, 1350),
+        'inv_item_2': (1730, 1350),
+        'inv_item_3': (1630, 1450),
+        'inv_item_4': (1730, 1450),
+        'inv_item_5': (1630, 1550),
+        'inv_item_6': (1730, 1550),
+    },
     RES_1440: {
         # get_coordinate(JOB_ARROWS, COLOR_YELLOW, ARROW_UP, 1): (450, 770),
         # ARROWS
@@ -99,7 +177,7 @@ coordinates = {
         'fishing_white_down_1': (598, 832),   # [
         'fishing_white_down_2': (928, 832),   # [
         # Common
-        'hero_icon': (55, 115),
+        'hero_icon': (55, 110),
         'hero_icon_frame': (15, 70),      # hero icon frame becomes black when hero is dead
         'hotbar_slot_1': (1860, 1150),
         'hotbar_slot_4': (2165, 1170),
@@ -194,6 +272,9 @@ coordinates = {
 }
 
 sizes = {
+    RES_1600: {
+        'imp2_arrows_height': 40
+    },
     RES_1440: {
         'imp2_arrows_height': 36
     },

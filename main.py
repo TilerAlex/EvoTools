@@ -8,7 +8,7 @@ import sys
 
 pyautogui.FAILSAFE = False
 
-VERSION = '1.0'
+VERSION = '1.1'
 UPDATE_TIME_THREAD = 0.05
 
 if __name__ == "__main__":

@@ -42,16 +42,16 @@ def update_overlay(root, label):
             prev_height = utils._height
             prev_x = utils._x
             prev_y = utils._y
-            if utils._width == 1920:
+            if utils._height <= 1080:
                 root.geometry(f"{OVERLAY_WIDTH}x{OVERLAY_HEIGHT}+{utils._x + 80}+{utils._y + 30}")
-            elif utils._width == 2560:
+            elif utils._height == 1440:
                 root.geometry(f"{OVERLAY_WIDTH}x{OVERLAY_HEIGHT}+{utils._x + 110}+{utils._y + 50}")
-            else:
-                root.geometry(f"{OVERLAY_WIDTH}x{OVERLAY_HEIGHT}+{utils._x + 100}+{utils._y + 40}")
+            elif utils._height >= 1600:
+                root.geometry(f"{OVERLAY_WIDTH}x{OVERLAY_HEIGHT}+{utils._x + 120}+{utils._y + 60}")
 
         current_menu = controls.get_current_menu()
 
-        error_suffix = "(unsupported resolution)" if utils._resolution not in [constants.RES_1080, constants.RES_1440] else ""
+        error_suffix = "(unsupported resolution)" if utils._resolution not in [constants.RES_1080, constants.RES_1440, constants.RES_1600] else ""
 
         label_text = f"{controls.custom_names[current_menu]()} {error_suffix}\n"
         for hotkey, action in controls.controls[current_menu].items():
