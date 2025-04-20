@@ -6,6 +6,9 @@ from PIL import Image
 from utils import constants
 import psutil
 from ctypes import windll
+import ctypes.wintypes
+import os
+from overlay import controls
 
 debug_mode = False
 _warcraft_active = False
@@ -16,7 +19,12 @@ _y = 0
 _width = 0
 _height = 0
 _window_handle = None
+_map_root_path = None
 
+def initialize():
+    get_map_root_path()
+    # Init Controls
+    controls.set_hotkeys(controls.get_current_menu())
 
 def is_color_matching(screenshot, coord, color):
     try:
@@ -54,6 +62,19 @@ def send_string(str):
             else:
                 win32api.SendMessage(_window_handle, win32con.WM_CHAR, ord(c), 0)
 
+def get_map_root_path():
+    global _map_root_path
+    CSIDL_PERSONAL = 5       # My Documents
+    SHGFP_TYPE_CURRENT = 0   # Get current, not default value
+
+    buf = ctypes.create_unicode_buffer(ctypes.wintypes.MAX_PATH)
+    ctypes.windll.shell32.SHGetFolderPathW(None, CSIDL_PERSONAL, None, SHGFP_TYPE_CURRENT, buf)
+
+    map_folder = buf.value + f'/Warcraft III/CustomMapData/Twilight\'s Eve Evo/'
+    if os.path.exists(map_folder):
+        _map_root_path = map_folder
+    #     return map_folder
+    # return None
 
 def is_warcraft_active():
     return _warcraft_active

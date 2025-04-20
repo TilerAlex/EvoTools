@@ -1,12 +1,15 @@
 from jobs import arrows, clues, fishing, leveling
+from overlay import overlay_damage
 import keyboard
 
 MENU_MAIN = 'menu_main'
+MENU_AUTOMATION = 'menu_automation'
 MENU_CLUE = 'menu_clues'
 MENU_ARROWS = 'menu_arrows'
 MENU_FISHING = 'menu_fishing'
 MENU_LEVELING = 'menu_leveling'
 MENU_SYSTEM = 'menu_system'
+MENU_DAMAGE = 'menu_damage'
 
 CTRL_F1 = 'ctrl+f1'
 CTRL_F2 = 'ctrl+f2'
@@ -18,48 +21,73 @@ CTRL_F6 = 'ctrl+f6'
 # Define the main menu and submenus
 controls = {
     MENU_MAIN: {
-        CTRL_F1: MENU_CLUE,
-        CTRL_F2: MENU_ARROWS,
-        CTRL_F3: MENU_FISHING,
-        CTRL_F4: MENU_LEVELING,
-        CTRL_F5: MENU_SYSTEM,
+        CTRL_F1: MENU_AUTOMATION,
+        CTRL_F2: MENU_DAMAGE,
+        CTRL_F3: MENU_SYSTEM,
+    },
+    MENU_AUTOMATION: {
+        CTRL_F1: MENU_MAIN,
+        CTRL_F2: MENU_CLUE,
+        CTRL_F3: MENU_ARROWS,
+        CTRL_F4: MENU_FISHING,
+        CTRL_F5: MENU_LEVELING,
     },
     MENU_CLUE: {
-        CTRL_F1: MENU_MAIN,
+        CTRL_F1: MENU_AUTOMATION,
         CTRL_F2: clues.toggle_clues,
         CTRL_F3: clues.set_clue_mode,
     },
     MENU_ARROWS: {
-        CTRL_F1: MENU_MAIN,
+        CTRL_F1: MENU_AUTOMATION,
         CTRL_F2: arrows.toggle_arrows,
         CTRL_F3: arrows.set_camera_back,
     },
     MENU_FISHING: {
-        CTRL_F1: MENU_MAIN,
+        CTRL_F1: MENU_AUTOMATION,
         CTRL_F2: fishing.toggle_fishing,
-        CTRL_F3: fishing.set_fishing_mode,  # Toggle fishing mode
-        CTRL_F4: fishing.set_respawn_point,  # Set respawn point
+        CTRL_F3: fishing.set_fishing_mode,
+        CTRL_F4: fishing.set_respawn_point,
         CTRL_F5: fishing.set_fish_save_interval,
     },
     MENU_LEVELING: {
-        CTRL_F1: MENU_MAIN,
+        CTRL_F1: MENU_AUTOMATION,
         CTRL_F2: leveling.toggle_leveling,
         CTRL_F3: leveling.set_click_button,
         CTRL_F4: leveling.set_click_interval,
         CTRL_F5: leveling.set_lvl_save_interval,
+    },
+    MENU_DAMAGE: {
+        CTRL_F1: MENU_MAIN,
+        CTRL_F2: overlay_damage.toggle_damage_overlay,
+        CTRL_F3: overlay_damage.set_overlay_position,
     },
     MENU_SYSTEM: {
         CTRL_F1: MENU_MAIN,
     }
 }
 
+def get_enabled_job():
+    if clues._enabled:
+        return "(Clues)"
+    elif arrows._enabled:
+        return "(Arrows)"
+    elif fishing._enabled:
+        return "(Fishing)"
+    elif leveling._enabled:
+        return "(Leveling)"
+    else:
+        return ""
+
 # Custom names for actions
 custom_names = {
     MENU_MAIN: lambda: "Main",
+    # MENU_AUTOMATION: lambda: f"Automation {get_enabled_job()}",
+    MENU_AUTOMATION: lambda: f"Automation {get_enabled_job()}",
     MENU_CLUE: lambda: f"Clues {"(enabled)" if clues._enabled else ""}",
     MENU_ARROWS: lambda: f"Arrows {"(enabled)" if arrows._enabled else ""}",
     MENU_FISHING: lambda: f"Fishing {"(enabled)" if fishing._enabled else ""}",
     MENU_LEVELING: lambda: f"Leveling {"(enabled)" if leveling._enabled else ""}",
+    MENU_DAMAGE: lambda: "Damage board",
     MENU_SYSTEM: lambda: "System",
     # Clue
     'toggle_clues': lambda: f"Clue: {"ON" if clues._enabled else "OFF"}" ,
@@ -77,6 +105,9 @@ custom_names = {
     'set_click_button': lambda: f"Click button: {leveling.get_click_button_str()}",
     'set_click_interval': lambda: f"Click interval: {f"{leveling.get_click_interval()} sec" if leveling.get_click_interval() != None else "none"}",
     'set_lvl_save_interval': lambda: f"Auto-save interval: {f"{leveling.get_save_interval()} min" if leveling.get_save_interval() != None else "none"}",
+    # Damage overlay
+    'toggle_damage_overlay': lambda: f"Overlay: {"ON" if overlay_damage._enabled else "OFF"}",
+    'set_overlay_position': lambda: f"Position: {overlay_damage.get_overlay_position()}",
 }
 
 _current_menu = MENU_MAIN

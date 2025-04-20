@@ -1,5 +1,5 @@
 from utils import utils
-from overlay import controls, overlay
+from overlay import overlay_damage, overlay_menu
 from jobs import arrows, clues, fishing, leveling
 import threading
 import pyautogui
@@ -8,16 +8,20 @@ import sys
 
 pyautogui.FAILSAFE = False
 
-VERSION = '1.1'
+VERSION = '1.2'
 UPDATE_TIME_THREAD = 0.05
 
 if __name__ == "__main__":
 
-    # Init Controls
-    controls.set_hotkeys(controls.get_current_menu())
+    # Initialization
+    utils.initialize()
 
     # Overlay thread
-    overlay_thread = threading.Thread(target=overlay.run_overlay, daemon=True)
+    overlay_thread = threading.Thread(target=overlay_menu.run_overlay, daemon=True)
+    overlay_thread.start()
+
+    # Overlay damage thread
+    overlay_thread = threading.Thread(target=overlay_damage.run_overlay, daemon=True)
     overlay_thread.start()
 
     # Arrows thread
