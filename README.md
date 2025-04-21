@@ -17,8 +17,12 @@ Made by Tiler
 ## Requirements
 
 - **Warcraft III**:
-  - "1920x1080", "2560x1440" or "2560x1600" resolution
+  - Game resolution:
+    - 1920x1080
+    - 2560x1440
+    - 2560x1600
   - Original graphics
+  - 100% HUD scale
   - English locale
   - Game window not minimized
 
